@@ -7,6 +7,12 @@ Vue.use(VueRouter)
 
 const routes = [
   {
+    path: '/nav',
+    name: 'nav',
+    component: () => import(/* webpackChunkName: "about" */ '../components/main/NavMenu.vue'),
+    meta:{name:"主页",hidden:true}
+  },
+  {
     path: '/',
     name: 'login',
     component: main,
@@ -27,8 +33,7 @@ const routes = [
     children:[{
       path: 'list1',
       name: 'list1',
-      // component: () => import(/* webpackChunkName: "about" */ '../views/ListItem1.vue'),
-      component: ListItem1,
+      component: () => import(/* webpackChunkName: "about" */ '../views/ListItem1.vue'),
       meta:{name:"列表1",hidden:false}
     },
     {

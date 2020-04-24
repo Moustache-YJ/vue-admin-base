@@ -45,7 +45,7 @@ export default {
 @import url('../../utils/less/common');
 .header{
     box-sizing: border-box;
-    padding: 0px 4%;
+    padding: 0px 2%;
     height: 60px;
     border-bottom: 1px solid @lap
 }
