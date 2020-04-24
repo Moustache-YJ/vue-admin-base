@@ -7,4 +7,4 @@ utils/init.less
 ### animate.css ###
 实现动画效果
 
-### vuex-persistedstate 本地固化vuex 防止h5刷新###
+### vuex-persistedstate 本地固化vuex 防止h5刷新 ###
