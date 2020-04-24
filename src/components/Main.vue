@@ -1,18 +1,21 @@
 <template>
-   <div class='main flex_row'>
-       <div class="siderBar">
+   <div class='main'>
+       <Header></Header>
+       <div class="flex_row">
             <el-menu
+            class="siderBar"
             :router="true"
             background-color="#545c64"
             text-color="#fff"
             active-text-color="#fff"
             >
-                <siderBar v-for="(item,index) in routerList" :key="index" :route="item"></siderBar>
+              <siderBar v-for="(item,index) in routerList" :key="index" :route="item"></siderBar>
             </el-menu>
-       </div>
-       <div class="left">
-           <Header></Header>
-           <router-view/>
+            <div class="left">
+              <transition name="fade" mode="out-in">
+                <router-view/>
+              </transition>
+            </div>
        </div>
    </div>
 </template>
@@ -51,5 +54,13 @@ export default {
 .left{
    width: 100%;
    height: 100vh;
+}
+.sider_title{
+  font-size:16px;
+  text-align: center;
+  color:#fff;
+}
+.fade-enter-active {
+  animation: fadeIn .7s;
 }
 </style>

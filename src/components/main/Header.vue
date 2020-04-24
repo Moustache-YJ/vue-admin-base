@@ -1,12 +1,13 @@
 <template>
-   <div class='header flex_row' style="justify-content: flex-end;">
-    <div class="header_right flex_row_center">
+   <div class='header flex_row_between'>
+    <p>xxxx后台管理系统</p>
+    <div class="header_right flex_row">
         <el-dropdown>
-            <span>陈毅杰</span>
-            <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item @click="handlelogout">退 出</el-dropdown-item>
-            </el-dropdown-menu>
-        </el-dropdown>
+                <span>陈毅杰</span>
+                <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item @click="handlelogout">退 出</el-dropdown-item>
+                </el-dropdown-menu>
+            </el-dropdown>
         <el-avatar :src="avatarSrc"></el-avatar>
     </div>
    </div>
@@ -54,5 +55,9 @@ span{
 }
 span:hover{
    cursor: pointer;
+}
+p{
+    font-size: 20px;
+    font-weight: bolder;
 }
 </style>
