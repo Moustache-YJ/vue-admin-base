@@ -1,29 +1,10 @@
-# vue-admin-belew
+### css样式重置消除浏览器差异 ###
+utils/init.less
 
-## Project setup
-```
-yarn install
-```
+### element-ui ###
+依托组件化的实现
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
+### animate.css ###
+实现动画效果
 
-### Compiles and minifies for production
-```
-yarn run build
-```
-
-### Run your tests
-```
-yarn run test
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### vuex-persistedstate 本地固化vuex 防止h5刷新###
