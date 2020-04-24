@@ -1,5 +1,6 @@
 
 import Request from '../../utils/request/api'
+import { longStackSupport } from 'q'
 const request  = new Request()
 const login =  {
     namespaced:true,
@@ -11,6 +12,9 @@ const login =  {
     mutations:{
         SET_TOKEN(state,value){
             state.token = value
+        },
+        REMOVE_TOKEN(state){
+            state.token = ''
         }
     },
     actions:{
@@ -21,6 +25,22 @@ const login =  {
                 //    登陆成功
                 commit('SET_TOKEN','I am login')
                 // 如果有权限需要处理权限
+                return Promise.resolve(1)
+            }else{
+                //  登陆失败
+                return Promise.resolve(2)
+            }
+            }).catch(err =>{
+            //    网络异常
+                return Promise.reject(error)
+            })
+        },
+        // 登出逻辑
+        logout({commit}){
+            request.login().then(res =>{
+            if(true){
+                // 登出成功
+                commit('REMOVE_TOKEN')
                 return Promise.resolve(1)
             }else{
                 //  登陆失败

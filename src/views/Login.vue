@@ -1,5 +1,5 @@
 <template>
-   <div class='login flex_column_around' style="align-items: flex-end">
+   <div class='login flex_column_center'>
        <div>
           <p class="title">xxxxx后台管理系统</p>
           <div class="loginCard">
@@ -38,7 +38,6 @@ export default {
         console.log(123)
       }).catch(err =>{
         // 网络错误的回调
-        
       })
     }
   },
