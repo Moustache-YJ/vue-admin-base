@@ -1,7 +1,7 @@
 <template>
    <div class='main'>
        <Header></Header>
-       <div class="flex_row">
+       <div class="flex_row main_info">
             <el-menu
             class="siderBar"
             :router="true"
@@ -42,9 +42,12 @@ export default {
 </script>
 <style lang='less' scoped>
 @import url('./../utils/less/common');
+.main_info{
+  height: calc(~'100vh - 60px');
+}
 .siderBar{
     width: 250px;
-    height: 100vh;
+    height: 100%;
     border-right: solid 1px #e6e6e6;
     background-color:@siderBackgroundColor
 }
@@ -53,7 +56,7 @@ export default {
 }
 .left{
    width: 100%;
-   height: 100vh;
+   height: 100%;
 }
 .sider_title{
   font-size:16px;
