@@ -12,6 +12,7 @@
               <siderBar v-for="(item,index) in routerList" :key="index" :route="item"></siderBar>
             </el-menu>
             <div class="left">
+              <NavMenu :matched="$route.matched"></NavMenu>
               <transition name="fade" mode="out-in">
                 <router-view/>
               </transition>
@@ -22,10 +23,12 @@
 <script>
 import SiderBar from './main/SiderBar'
 import Header from './main/Header'
+import NavMenu from './main/NavMenu'
 export default {
   components:{
     SiderBar,
-    Header
+    Header,
+    NavMenu
   },
   data () {
     return {
