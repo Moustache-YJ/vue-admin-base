@@ -23,7 +23,7 @@ const routes = [
     name: 'home',
     component: main,
     redirect:"/home/home",
-    meta:{name:"数据总览",hidden:false,icon:'record'},
+    meta:{name:"数据总览",hidden:false,icon:'chart'},
     children:[{
       path: 'home',
       name: 'home',
@@ -34,7 +34,7 @@ const routes = [
     path: '/list',
     name: 'list',
     redirect:"/list/list1",
-    meta:{name:"列表",hidden:false,icon:'money'},
+    meta:{name:"钱包记录",hidden:false,icon:'money'},
     component:main,
     children:[{
       path: 'list1',
