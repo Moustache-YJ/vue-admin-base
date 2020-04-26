@@ -4,7 +4,7 @@ import main from '../components/Main'
 import ListItem1 from '../views/ListItem1.vue'
 // 可以根据角色的不同渲染不同的路由表
 Vue.use(VueRouter)
-
+// 路由表（总）根据登陆权限的的修改对应路由表的实现。
 const routes = [
   {
     path: '/',
