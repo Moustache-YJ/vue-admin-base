@@ -23,25 +23,24 @@ const routes = [
     name: 'home',
     component: main,
     redirect:"/home/home",
-    meta:{name:"数据总览",hidden:false},
+    meta:{name:"数据总览",hidden:false,icon:'record'},
     children:[{
       path: 'home',
       name: 'home',
       component: () => import(/* webpackChunkName: "about" */ '../views/Home.vue'),
-      meta:{name:"列表1",hidden:false}
     }]
   },
   {
     path: '/list',
     name: 'list',
     redirect:"/list/list1",
-    meta:{name:"列表",hidden:false},
+    meta:{name:"列表",hidden:false,icon:'money'},
     component:main,
     children:[{
       path: 'list1',
       name: 'list1',
       component: () => import(/* webpackChunkName: "about" */ '../views/ListItem1.vue'),
-      meta:{name:"列表1",hidden:false}
+      meta:{name:"列表1",hidden:false,},
     },
     {
       path: 'list2',

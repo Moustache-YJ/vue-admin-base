@@ -47,11 +47,14 @@ export default {
     box-sizing: border-box;
     padding: 0px 2%;
     height: 60px;
-    border-bottom: 1px solid @lap
+    background-color: @headerBackgroundColor;
+    border-bottom: 1px solid @lap;
+    color:#fff;
 }
 span{
     font-size: 16px;
-    margin-right: 20px
+    margin-right: 20px;
+    color:#fff;
 }
 span:hover{
    cursor: pointer;

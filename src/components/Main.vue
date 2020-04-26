@@ -5,9 +5,7 @@
             <el-menu
             class="siderBar"
             :router="true"
-            background-color="#545c64"
-            text-color="#fff"
-            active-text-color="#fff"
+            text-color="#303133"
             >
               <siderBar v-for="(item,index) in routerList" :key="index" :route="item"></siderBar>
             </el-menu>
@@ -54,7 +52,6 @@ export default {
     width: 250px;
     height: 100%;
     border-right: solid 1px #e6e6e6;
-    background-color:@siderBackgroundColor
 }
 .siderBar /deep/ .el-menu{
   border: unset
