@@ -22,7 +22,14 @@ const routes = [
     path: '/home',
     name: 'home',
     component: main,
+    redirect:"/home/home",
     meta:{name:"数据总览",hidden:false},
+    children:[{
+      path: 'home',
+      name: 'home',
+      component: () => import(/* webpackChunkName: "about" */ '../views/Home.vue'),
+      meta:{name:"列表1",hidden:false}
+    }]
   },
   {
     path: '/list',

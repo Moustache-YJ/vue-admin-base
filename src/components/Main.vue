@@ -13,9 +13,11 @@
             </el-menu>
             <div class="left">
               <NavMenu :matched="$route.matched"></NavMenu>
-              <transition name="fade" mode="out-in">
-                <router-view/>
-              </transition>
+              <div class="router_view">
+                  <transition name="fade" mode="out-in">
+                    <router-view/>
+                  </transition>
+              </div>
             </div>
        </div>
    </div>
@@ -68,5 +70,13 @@ export default {
 }
 .fade-enter-active {
   animation: fadeIn .7s;
+}
+.router_view{
+   height: calc(~'100vh - 120px');
+   margin: 0px .5% 10px .5%;
+   border: 1px solid @lap;
+   padding: 10px;
+   box-sizing: border-box;
+   border-radius: 10px;
 }
 </style>
