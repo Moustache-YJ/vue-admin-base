@@ -35,6 +35,7 @@ export default {
     handleLogin(){
       this.login(this.loginForm).then(res =>{
         // 登陆成功的回调、失败的回调
+        this.$router.push('/home')
         console.log(123)
       }).catch(err =>{
         // 网络错误的回调

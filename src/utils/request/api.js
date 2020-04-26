@@ -11,6 +11,13 @@ class Request {
       data:{...params.data}
     })
   }
+  // 登出
+  logout(){
+    return _http.request({
+      url:`${BASE_URL}/account/logout`,
+      method:'get',
+    })
+  }
 }
 
 export default Request

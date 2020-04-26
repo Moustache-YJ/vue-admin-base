@@ -7,15 +7,9 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/nav',
-    name: 'nav',
-    component: () => import(/* webpackChunkName: "about" */ '../components/main/NavMenu.vue'),
-    meta:{name:"主页",hidden:true}
-  },
-  {
     path: '/',
     name: 'login',
-    component: main,
+    component: () => import(/* webpackChunkName: "about" */ '../views/Login.vue'),
     meta:{name:"主页",hidden:true}
   },
   {

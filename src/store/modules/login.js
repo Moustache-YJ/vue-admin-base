@@ -37,7 +37,8 @@ const login =  {
         },
         // 登出逻辑
         logout({commit}){
-            request.login().then(res =>{
+            request.logout().then(res =>{
+            debugger
             if(true){
                 // 登出成功
                 commit('REMOVE_TOKEN')
@@ -48,7 +49,7 @@ const login =  {
             }
             }).catch(err =>{
             //    网络异常
-                return Promise.reject(error)
+                return Promise.reject(err)
             })
         }
     }

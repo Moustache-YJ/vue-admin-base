@@ -5,7 +5,7 @@
         <el-dropdown>
                 <span>陈毅杰</span>
                 <el-dropdown-menu slot="dropdown">
-                    <el-dropdown-item @click="handlelogout">退 出</el-dropdown-item>
+                    <el-dropdown-item @click.native="handlelogout">退 出</el-dropdown-item>
                 </el-dropdown-menu>
             </el-dropdown>
         <el-avatar :src="avatarSrc"></el-avatar>
@@ -29,8 +29,11 @@ export default {
       ...mapActions('login',['logout']),
       // 点击退出按钮
       handlelogout(){
+        console.log(123)
         this.logout().then(res =>{
-            // 登陆成功的回调、失败的回调
+        debugger
+        this.$router.push({path:'/login'})
+        // 登陆成功的回调、失败的回调
         console.log(123)
         }).catch(err =>{
             // 网络错误的回调
