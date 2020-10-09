@@ -1,10 +1,14 @@
 <template>
    <div class=''>
-     123
+      <quill-editor></quill-editor>
    </div>
 </template>
 <script>
+import QuillEditor from '../components/page/QuillEditor'
 export default {
+  components:{
+    QuillEditor
+  },
   data () {
     return {
     };

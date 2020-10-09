@@ -1,6 +1,5 @@
 
 import Request from '../../utils/request/api'
-import { longStackSupport } from 'q'
 const request  = new Request()
 const login =  {
     namespaced:true,
