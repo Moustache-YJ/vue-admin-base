@@ -1,18 +1,17 @@
 <template>
    <div class='login flex_column_center'>
        <div>
-          <p class="title">xxxxx后台管理系统</p>
-          <div class="loginCard">
+          <!-- <p class="title">必乐领主平台</p> -->
+          <div class="loginCard" id="login" ref="loginCard" :class="[{'animated':onload},{'fadeIn':onload},{'show':onload}]" >
              <el-form v-model="loginForm">
-                <p class="animated fadeInUp lebal">账号：</p>
                 <el-form-item>
-                  <el-input v-model="loginForm.account" clearable placeholder="输入管理员账号"></el-input>
+                  <el-input prefix-icon="el-icon-user" v-model="loginForm.account" clearable placeholder="输入管理员账号"></el-input>
                 </el-form-item>
-                <p class="animated fadeInUp lebal">密码：</p>
                 <el-form-item>
-                  <el-input v-model="loginForm.password" clearable :show-password="true" placeholder="输入管理员密码"></el-input>
+                  <el-input prefix-icon="el-icon-place" v-model="loginForm.password" clearable :show-password="true" placeholder="输入管理员密码"></el-input>
               </el-form-item>
               <el-button type="primary" :loading="loading" @click="handleLogin">登 录</el-button>
+              <el-button type="danger"  @click="register">注 册</el-button>
             </el-form>
           </div>
        </div>
@@ -28,7 +27,8 @@ export default {
       loginForm:{
         account:'',
         password:''
-      }
+      },
+      onload:false
     };
   },
   methods: {
@@ -42,9 +42,16 @@ export default {
       }).catch(err =>{
         // 网络错误的回调
       })
+    },
+    register(){
+
     }
   },
   mounted() {
+    window.onload = ()=>{
+      this.onload = true
+    },
+    console.log(main)
     console.log(this.$store)
   },
 }
@@ -53,7 +60,7 @@ export default {
 .login{
   width: 100vw;
   height: 100vh;
-  background-image: url('../assets/login/2.jpg');
+  background-image: url('../assets/login/3.jpg');
   background-size: 100% 100%;
   padding:5%;
   box-sizing: border-box;
@@ -68,14 +75,18 @@ export default {
 }
 .loginCard{
   width: 400px;
-  height: 300px;
+  height: 250px;
   background-color: rgba(255,255,255,.6);
   // background-color: white;
   box-shadow:0px 2px 10px 2px #3e3e3e;
   border-radius: 5px;
-  margin-top:20px
+  margin-top:-100px;
+  display: none
 }
 .lebal{
   font-size: 15px;
+}
+.show{
+  display: block;
 }
 </style>
