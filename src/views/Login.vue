@@ -20,6 +20,7 @@
 </template>
 <script>
 import {mapActions} from 'vuex'
+import encryption from '../utils/encryption/index'
 export default {
   data () {
     return {
@@ -33,10 +34,11 @@ export default {
   methods: {
     ...mapActions('login',['login']),
     handleLogin(){
+      const form = this.loginForm
+      console.log(encryption.encryptPwd(form.password))
       this.login(this.loginForm).then(res =>{
         // 登陆成功的回调、失败的回调
         this.$router.push('/home')
-        console.log(123)
       }).catch(err =>{
         // 网络错误的回调
       })
