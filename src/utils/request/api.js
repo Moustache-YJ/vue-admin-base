@@ -11,6 +11,13 @@ class Request {
       data:{...params.data}
     })
   }
+  register(params){
+    return _http.request({
+      url:`${BASE_URL}/api/user/register`,
+      method:'post',
+      data:{...params.data}
+    }) 
+  }
   // 登出
   logout(){
     return _http.request({
