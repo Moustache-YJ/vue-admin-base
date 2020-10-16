@@ -11,14 +11,14 @@
               </div>
           </div>
           <div class="loginCard" ref="loginCard" :class="[{'animated':loginStatus},{'fadeIn':loginStatus},{'show':loginStatus}]" >
-             <el-form v-model="loginForm">
-                <el-form-item>
-                  <el-input prefix-icon="el-icon-user" v-model="loginForm.account" clearable placeholder="输入管理员账号"></el-input>
+             <el-form :model="loginForm" :rules="login_rule" ref="login_rule">
+                <el-form-item prop="account">
+                  <el-input prefix-icon="el-icon-user" v-model="loginForm.account" clearable placeholder="请输入手机号/昵称"></el-input>
                 </el-form-item>
-                <el-form-item>
-                  <el-input prefix-icon="el-icon-place" v-model="loginForm.password" clearable :show-password="true" placeholder="输入管理员密码"></el-input>
+                <el-form-item prop="password">
+                  <el-input prefix-icon="el-icon-place" v-model="loginForm.password" clearable :show-password="true" placeholder="请输入密码"></el-input>
               </el-form-item>
-              <el-button type="primary" :loading="loading" @click="handleLogin" round style="width:100%">登 录</el-button>
+              <el-button type="primary" :loading="loading" @click="login" round style="width:100%">登 录</el-button>
               <!-- <el-button type="danger"  @click="register">注 册</el-button> -->
             </el-form>
           </div>
@@ -36,7 +36,7 @@
                 <el-form-item prop="user_password">
                   <el-input prefix-icon="el-icon-place" v-model="registerForm.user_password" clearable :show-password="true" placeholder="输入密码"></el-input>
               </el-form-item>
-              <el-button type="primary" :loading="loading" @click="register" round style="width:100%">注 册</el-button>
+              <el-button type="primary"  @click="register" round style="width:100%">注 册</el-button>
               <!-- <el-button type="danger"  @click="register">注 册</el-button> -->
             </el-form>
           </div>
@@ -62,6 +62,14 @@ export default {
         user_phone:'',
         user_email:'',
         user_password:''
+      },
+      login_rule:{
+        account: [
+            {required: true, message: '请输入手机号/昵称', trigger: 'blur'}
+        ],
+        password: [
+            {required: true, message: '请输入密码', trigger: 'blur'}
+        ],
       },
       rule:{
         user_name: [
@@ -129,14 +137,13 @@ export default {
         }
       }, 17)
     },
-    handleLogin(){
-      const form = this.loginForm
-      console.log(encryption.encryptPwd(form.password))
-      this.login(this.loginForm).then(res =>{
-        // 登陆成功的回调、失败的回调
-        this.$router.push('/home')
-      }).catch(err =>{
-        // 网络错误的回调
+    login(){
+      this.$refs['login_rule'].validate((valid) =>{
+        if(valid){
+          this.loginApi()
+        }else{
+          this.$message.warning('请确认登陆表单')
+        }
       })
     },
     register(){
@@ -148,9 +155,28 @@ export default {
         }
       })
     },
+    loginApi(){
+      const form = this.loginForm
+      this.loading = true
+      this.$api.login({data:{account:form.account,password:encryption.encryptPwd(form.password)}}).then(res =>{
+        this.loading = false
+        this.$refs['login_rule'].resetFields()
+        if(res.data.status){
+           this.$message.success('登陆成功')
+           //TODO 登陆之后的跳转
+         }else{
+           this.$message.error(res.data.msg)
+         }
+      })
+    },
     registerApi(){
       this.$api.register({data:{...this.registerForm}}).then(res =>{
-         console.log(123)
+        this.$refs['reg_rule'].resetFields()
+         if(res.data.status){
+           this.$message.success('注册成功')
+         }else{
+           this.$message.error(res.data.msg)
+         }
       })
     }
   },

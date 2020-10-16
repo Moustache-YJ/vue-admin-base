@@ -6,7 +6,7 @@ class Request {
   // 登录
   login(params){
     return _http.request({
-      url:`${BASE_URL}/account/adminSignIn`,
+      url:`${BASE_URL}/api/user/login`,
       method:'post',
       data:{...params.data}
     })
